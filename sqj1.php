@@ -10,8 +10,7 @@ if (isset($_POST["login"]))
 		"' AND password='" . $_POST["password"] . "'";
 
 	$result = mysqli_query($link, $query) 
-		or die("MySQL Query Error : " . mysqli_error() . "   SQL: " . $q
-uery);
+		or die("MySQL Query Error : " . mysqli_error() . "   SQL: " . $query);
 	
 	$match_count = mysqli_num_rows($result);
 
@@ -20,13 +19,11 @@ uery);
 		mysqli_free_result($result);
 		
 		mysqli_close($link);
-		header("Location: http://120.113.173.21/sqj1_s.php?user=" . $_PO
-ST["username"]);
+		header("Location: http://120.113.173.21/sqj1_s.php?user=" . $_POST["username"]);
 	}
 	else
 	{
-		header("Location: http://" . $_SERVER["HTTP_HOST"] . $_SERVER["S
-CRIPT_NAME"]); 
+		header("Location: http://" . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"]); 
 	}
 }
 ?>
